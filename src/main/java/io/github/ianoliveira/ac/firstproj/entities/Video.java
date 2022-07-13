@@ -2,7 +2,6 @@ package io.github.ianoliveira.ac.firstproj.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 @Entity
@@ -15,13 +14,13 @@ public class Video implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotEmpty (message = "Tá vazio") @NotBlank (message = "Só tem espaços")
+    @NotBlank (message = "Campo deve ser preenchido")
     private String titulo;
 
-    @NotEmpty @NotBlank
+    @NotBlank (message = "Campo deve ser preenchido")
     private String descricao;
 
-    @NotEmpty @NotBlank
+    @NotBlank (message = "Campo deve ser preenchido")
     @Column(unique = true)
     private String url;
 
