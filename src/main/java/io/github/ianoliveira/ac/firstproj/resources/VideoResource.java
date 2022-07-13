@@ -2,7 +2,6 @@ package io.github.ianoliveira.ac.firstproj.resources;
 
 import io.github.ianoliveira.ac.firstproj.dto.VideoDTO;
 import io.github.ianoliveira.ac.firstproj.entities.Video;
-import io.github.ianoliveira.ac.firstproj.repositories.VideoRepository;
 import io.github.ianoliveira.ac.firstproj.services.VideoService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,10 +26,6 @@ public class VideoResource {
     @Autowired
     private ModelMapper mapper;
 
-    @Autowired
-    private VideoRepository repository;
-
-
     @GetMapping
     public ResponseEntity<List<VideoDTO>> getAllVideos(){
         return ResponseEntity.ok()
@@ -44,7 +40,7 @@ public class VideoResource {
     }
 
     @PostMapping
-    public ResponseEntity<VideoDTO> create(@RequestBody VideoDTO dto){
+    public ResponseEntity<VideoDTO> create( @Valid @RequestBody VideoDTO dto){
         Video newObj = service.create(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path(ID)
                 .buildAndExpand(newObj.getId()).toUri();
@@ -52,7 +48,7 @@ public class VideoResource {
     }
 
     @PutMapping(ID)
-    public ResponseEntity<VideoDTO> update(@PathVariable Long id, @RequestBody VideoDTO dto){
+    public ResponseEntity<VideoDTO> update(@PathVariable Long id, @Valid @RequestBody VideoDTO dto){
         dto.setId(id);
         return ResponseEntity.ok().body(mapper.map(service.update(dto), VideoDTO.class));
     }
