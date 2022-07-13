@@ -28,7 +28,7 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
-    public Video findById(Long id) {
+    public Video findById(Integer id) {
         Optional<Video> obj = repository.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
     }
@@ -46,7 +46,7 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(Integer id) {
         findById(id);
         repository.deleteById(id);
     }

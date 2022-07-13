@@ -12,7 +12,7 @@ public class Video implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @NotBlank (message = "Campo deve ser preenchido")
     private String titulo;
@@ -28,18 +28,18 @@ public class Video implements Serializable {
     public Video() {
     }
 
-    public Video(String titulo, String descricao, String url) {
+    public Video(Integer id, String titulo, String descricao, String url) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
         this.url = url;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

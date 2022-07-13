@@ -18,11 +18,11 @@ public class LocalConfig {
 
     @Bean
     public void startDB(){
-        Video v1 = new Video("PERDIDOS EM PARIS", "eu voltei ta",
+        Video v1 = new Video(null, "PERDIDOS EM PARIS", "eu voltei ta",
                 "https://www.youtube.com/watch?v=D_GxH_KgARU");
-        Video v2 = new Video("2021 EM UMA MÚSICA", "Sound design by: Lucas Vinícius",
+        Video v2 = new Video(null, "2021 EM UMA MÚSICA", "Sound design by: Lucas Vinícius",
                 "https://www.youtube.com/watch?v=X2mOfqeAH7c");
-        Video v3 = new Video("CASIMIRO REAGE: FEIJOADA DA COREIA? LUXUOSA COMIDA DE RUA COREANA | Cortes do Casimito",
+        Video v3 = new Video(null, "CASIMIRO REAGE: FEIJOADA DA COREIA? LUXUOSA COMIDA DE RUA COREANA | Cortes do Casimito",
                 "Deixe o like!",
                 "https://www.youtube.com/watch?v=yLXtaCAA65g");
 

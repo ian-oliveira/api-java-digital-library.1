@@ -2,7 +2,7 @@ package io.github.ianoliveira.ac.firstproj.dto;
 
 public class VideoDTO {
 
-    private Long id;
+    private Integer id;
 
     private String titulo;
 
@@ -13,18 +13,18 @@ public class VideoDTO {
     public VideoDTO() {
     }
 
-    public VideoDTO(Long id, String titulo, String descricao, String url) {
+    public VideoDTO(Integer id, String titulo, String descricao, String url) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
         this.url = url;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

@@ -35,26 +35,26 @@ public class VideoResource {
     }
 
     @GetMapping(ID)
-    public ResponseEntity<VideoDTO> getById(@PathVariable Long id){
+    public ResponseEntity<VideoDTO> getById(@PathVariable Integer id){
         return ResponseEntity.ok().body(mapper.map(service.findById(id), VideoDTO.class));
     }
 
     @PostMapping
     public ResponseEntity<VideoDTO> create( @Valid @RequestBody VideoDTO dto){
         Video newObj = service.create(dto);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path(ID)
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(newObj.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
 
     @PutMapping(ID)
-    public ResponseEntity<VideoDTO> update(@PathVariable Long id, @Valid @RequestBody VideoDTO dto){
+    public ResponseEntity<VideoDTO> update(@PathVariable Integer id, @Valid @RequestBody VideoDTO dto){
         dto.setId(id);
         return ResponseEntity.ok().body(mapper.map(service.update(dto), VideoDTO.class));
     }
 
     @DeleteMapping(ID)
-    public ResponseEntity<VideoDTO> delete(@PathVariable Long id){
+    public ResponseEntity<VideoDTO> delete(@PathVariable Integer id){
         service.delete(id);
         return ResponseEntity.noContent().build();
     }

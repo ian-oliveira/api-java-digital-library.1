@@ -8,11 +8,11 @@ import java.util.List;
 public interface VideoService {
     List<Video> findAll();
 
-    Video findById(Long id);
+    Video findById(Integer id);
 
     Video create(VideoDTO dto);
 
     Video update(VideoDTO dto);
 
-    void delete(Long id);
+    void delete(Integer id);
 }
